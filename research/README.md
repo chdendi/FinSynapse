@@ -28,6 +28,7 @@
 
 | 文件 | 日期 | 简介 |
 |------|------|------|
+| [NVIDIA-路线图与供应链全景分析-20260530.md](industry/ai/NVIDIA-路线图与供应链全景分析-20260530.md) | 2026-05-30 | NVIDIA Blackwell→Rubin→Feynman 路线图、供应链各环节增速、A/H 股相关公司及护城河分析 |
 | [DeepSeek-V4-产业链分析-20260503.md](industry/ai/DeepSeek-V4-产业链分析-20260503.md) | 2026-05-03 | DeepSeek V4 芯片供应链、云部署、关联上市公司估值分析 |
 
 ---
