@@ -9,20 +9,28 @@
   - 跨市场（AH/ADR）：[`templates/references/cross-market-policy.md`](templates/references/cross-market-policy.md)
   - 写完自检：[`templates/assets/report-quality-checklist.md`](templates/assets/report-quality-checklist.md)
   - 改进建议：[`templates/_proposals/`](templates/_proposals/)
+- **行业/产业链报告**：统一使用 [`templates/industry-report.md`](templates/industry-report.md)（v0.1）
+  - 供应链方法论：[`templates/references/supply-chain-methodology.md`](templates/references/supply-chain-methodology.md)
+  - 多市场数据源：[`templates/references/market-source-playbook.md`](templates/references/market-source-playbook.md)
+  - 证据分级：[`templates/references/evidence-ladder.md`](templates/references/evidence-ladder.md)
+  - 评分方法：[`templates/references/scoring-methodology.md`](templates/references/scoring-methodology.md)
+  - 写完自检：[`templates/assets/industry-report-checklist.md`](templates/assets/industry-report-checklist.md)
 - **个股文件命名**：`stocks/<market>/<ticker>-<slug>-YYYYMMDD.md`（详见主 spec 第 2 节）
   - 示例：`stocks/hk/00981-HK-smic-20260505.md`
-- **行业研究** / **其他主题报告**：暂沿用 `[主题]-YYYYMMDD.md`
+- **行业文件命名**：`industry/<sector>/<slug>-YYYYMMDD.md`（详见 industry-report.md §2）
+  - 示例：`industry/semiconductor/A股-AI半导体产业链深度调研-20260609.md`
 - **旧报告**：不强制迁移到新模板，只约束新报告
 
 ## 行业调研
 
 ### 半导体
 
-| 文件 | 日期 | 简介 |
-|------|------|------|
-| [中国AI芯片自主化全景图-20260504.md](industry/semiconductor/中国AI芯片自主化全景图-20260504.md) | 2026-05-04 | 国产 AI 芯片公司总览（华为海思/寒武纪/海光等），含估值、财务、代工供应链分析 |
-| [半导体行业周期性分析-20260504.md](industry/semiconductor/半导体行业周期性分析-20260504.md) | 2026-05-04 | 半导体行业周期框架、供需驱动与投资时钟分析 |
-| [芯片制造核心概念解读-20260504.md](industry/semiconductor/芯片制造核心概念解读-20260504.md) | 2026-05-04 | 芯片制造入门：晶圆、光刻胶、DUV/EUV、刻蚀机等核心概念科普 |
+| 文件 | 日期 | 简介 | 模板版本 |
+|------|------|------|:-------:|
+| [A股-AI半导体产业链深度调研-20260609.md](industry/semiconductor/A股-AI半导体产业链深度调研-20260609.md) | 2026-06-09 | A 股 AI 半导体全产业链 8 层扫描，Tier 1/2/3 卡脖子环节识别，Top 5 标的优先级排序 | v0.1 |
+| [中国AI芯片自主化全景图-20260504.md](industry/semiconductor/中国AI芯片自主化全景图-20260504.md) | 2026-05-04 | 国产 AI 芯片公司总览（华为海思/寒武纪/海光等），含估值、财务、代工供应链分析 | legacy |
+| [半导体行业周期性分析-20260504.md](industry/semiconductor/半导体行业周期性分析-20260504.md) | 2026-05-04 | 半导体行业周期框架、供需驱动与投资时钟分析 | legacy |
+| [芯片制造核心概念解读-20260504.md](industry/semiconductor/芯片制造核心概念解读-20260504.md) | 2026-05-04 | 芯片制造入门：晶圆、光刻胶、DUV/EUV、刻蚀机等核心概念科普 | legacy |
 
 ### AI 产业链
 

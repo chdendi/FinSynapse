@@ -2,7 +2,7 @@
 
 > 本文件被 Codex、opencode、Cursor 等支持 `AGENTS.md` 约定的 agent 读取。
 > Claude Code 用户请同时参考 `CLAUDE.md` 及 `.claude/skills/`。
-> opencode 用户可直接通过 `skill` 工具加载 `.claude/skills/company-analysis/SKILL.md`。
+> opencode 用户可直接通过 `skill` 工具加载 `.claude/skills/company-analysis/SKILL.md` 或 `.claude/skills/market-research/SKILL.md`。
 
 ## 项目简介
 
@@ -11,6 +11,69 @@
 - 个股 / 行业研究报告（`research/stocks/`、`research/industry/`）
 
 ## 当前 agent 工作流
+
+### 行业/产业链研究报告（市场调研与主题扫描）
+
+当用户要求"扫描一下 XX 产业链"、"XX 行业有哪些卡脖子环节"、"做 XX 主题的市场调研"、"哪些标的在 XX 赛道最值得研究"、"/market-research" 时：
+
+#### 1. 强制读取（每次执行必做，不允许使用记忆中的旧版本）
+
+按顺序读取以下文件：
+
+1. `research/templates/industry-report.md` （主 spec，当前 v0.1）
+2. `research/templates/report-frontmatter.md` （frontmatter 字段定义）
+3. `research/templates/references/data-source-policy.md` （数据来源优先级 + 三必标审计线索）
+4. `research/templates/references/supply-chain-methodology.md` （供应链 8 层架构 + 稀缺层识别 + 标的筛选流程）
+5. `research/templates/references/market-source-playbook.md` （多市场数据源路径）
+6. `research/templates/references/evidence-ladder.md` （证据分级 + 红牌警示）
+7. `research/templates/references/industry-metrics.md` （行业 packs；按行业引用对应章节）
+8. `research/templates/references/scoring-methodology.md` （瓶颈评分方法论）
+9. `research/templates/assets/industry-report-checklist.md` （报告完成度与 sanity 自检）
+
+#### 2. 命名规则（来自主 spec §2）
+
+`research/industry/<sector>/<slug>-YYYYMMDD.md`
+
+- `sector`：行业分类（`semiconductor` / `ai` / `new-energy` / `robotics` / `healthcare` 等）
+- `slug`：中文或英文短名描述主题
+- 示例：`research/industry/semiconductor/A股-AI半导体产业链深度调研-20260609.md`
+
+#### 3. 定范围（来自 supply-chain-methodology.md §2）
+
+在开始扫描前，先向用户确认（或合理推定）市场、主题和时间窗。只在意缺失会实质改变结论的 scope 时才追问。
+
+#### 4. 落盘前检查同主题报告
+
+在 `research/industry/<sector>/` 下查找是否已存在同主题的报告：
+- 如有，**询问用户**：是更新现有报告还是新建快照
+- 不要默认覆盖
+
+#### 5. 撰写要点
+
+按主 spec §4 正文骨架逐节产出。重点：
+
+- TL;DR ≤200 字，独立可读
+- **先排产业链层级，再排公司**（核心纪律）
+- 产业链 8 层架构逐层展开，候选池 ≥20 家（市场足够大时）
+- 稀缺层按 6 个信号维度判定，分 Tier 1/2/3
+- 每个 Top 标的 ≥2 条强/中等证据，标注证据等级
+- **至少降级 1 个热门方向**并说明原因
+- 每个关键数字带 `as_of` + 来源 + 口径（data-source-policy.md 三必标）
+- `## Meta` 段必填（数据缺口 + 不适用章节 + 证据覆盖率）
+
+#### 6. 自检（写完报告必做）
+
+按 `assets/industry-report-checklist.md` 逐条检查（A1-A9 + B1-B9）；多市场扫描额外检查 B3、B4。
+
+#### 7. 更新索引
+
+报告写完后**必须**更新 `research/README.md` 对应行业的表格，加一行新报告（含模板版本）。
+
+#### 8. 模板改进建议（自迭代机制）
+
+同公司分析报告流程，见下方第 7 条。
+
+---
 
 ### 公司分析报告（最常见的 agent 任务）
 
@@ -95,7 +158,7 @@ A/H/ADR 同公司分别建文件，**遵循 cross-market-policy.md 主从报告�
 | `docs/_local/` | 本地工作笔记、计划文档（不公开发布） |
 | `research/README.md` | 研究报告索引 + 撰写规范 |
 | `research/templates/` | 模板与规范的唯一真源 |
-| `.claude/skills/` | Claude Code / opencode 共用 skill 配置（见 `CLAUDE.md`） |
+| `.claude/skills/` | Claude Code / opencode 共用 skill 配置（公司分析 + 市场调研，见 `CLAUDE.md`） |
 | `pyproject.toml` | Python 项目配置（uv 管理） |
 | `scripts/` | 数据脚本与日报生成工具 |
 
