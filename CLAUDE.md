@@ -16,8 +16,9 @@
 | Skill | 触发 | 说明 |
 |-------|------|------|
 | `company-analysis` | 写个股分析报告时自动触发 | 遵循 `research/templates/company-analysis.md`（当前 v0.3）撰写报告 |
+| `market-research` | 做行业/产业链研究时自动触发 | 遵循 `research/templates/industry-report.md`（当前 v0.1），供应链瓶颈狩猎 + 标的优先级排序 |
 
-> opencode 用户也可以通过 `skill` 工具加载 `.claude/skills/company-analysis/SKILL.md`（已在该 agent 的 available skills 中注册）。
+> opencode 用户也可以通过 `skill` 工具加载 `.claude/skills/company-analysis/SKILL.md` 或 `.claude/skills/market-research/SKILL.md`（已注册为 available skills）。
 
 ### 核心工作流
 
