@@ -1,0 +1,86 @@
+{
+  "schema_version": "2.0.0",
+  "asof": "2026-09-11",
+  "market_asof": {
+    "cn": "2026-09-11",
+    "hk": "2026-09-11",
+    "us": "2026-09-11"
+  },
+  "latest_complete_date": {
+    "cn": null,
+    "hk": "2026-09-11",
+    "us": "2026-09-11"
+  },
+  "raw_temperature_asof": "2026-09-11",
+  "markets": {
+    "cn": {
+      "available": true,
+      "asof": "2026-09-11",
+      "latest_complete_date": null,
+      "overall": 82.15873015873017,
+      "sub_temperatures": {
+        "valuation": null,
+        "sentiment": 82.15873015873017,
+        "liquidity": 51.09126984126984
+      },
+      "change_1w": {
+        "overall": -1.3148148148147953,
+        "attribution": {
+          "valuation": null,
+          "sentiment": -1.3148148148148096,
+          "liquidity": -3.0059523809523796
+        }
+      },
+      "data_quality": "valuation_unavailable",
+      "subtemp_completeness": 2,
+      "conf_ok": 0,
+      "is_complete": false
+    },
+    "hk": {
+      "available": true,
+      "asof": "2026-09-11",
+      "latest_complete_date": "2026-09-11",
+      "overall": 31.65732959850608,
+      "sub_temperatures": {
+        "valuation": 14.325396825396837,
+        "sentiment": 73.25396825396825,
+        "liquidity": 29.03174603174603
+      },
+      "change_1w": {
+        "overall": 6.802054154995339,
+        "attribution": {
+          "valuation": -4.9801587301587205,
+          "sentiment": 35.07936507936508,
+          "liquidity": -0.2738095238095255
+        }
+      },
+      "data_quality": "ok",
+      "subtemp_completeness": 3,
+      "conf_ok": 0,
+      "is_complete": true
+    },
+    "us": {
+      "available": true,
+      "asof": "2026-09-11",
+      "latest_complete_date": "2026-09-11",
+      "overall": 81.80853664450365,
+      "sub_temperatures": {
+        "valuation": 87.58333333333334,
+        "sentiment": 79.5186059175894,
+        "liquidity": 51.99801587301587
+      },
+      "change_1w": {
+        "overall": -5.179600465187519,
+        "attribution": {
+          "valuation": 1.3333333333333428,
+          "sentiment": -7.670106604456464,
+          "liquidity": 0.24503968253969077
+        }
+      },
+      "data_quality": "ok",
+      "subtemp_completeness": 3,
+      "conf_ok": 0,
+      "is_complete": true
+    }
+  }
+}
