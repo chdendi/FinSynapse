@@ -1,0 +1,421 @@
+{
+  "schema_version": "2.0.0",
+  "asof": "2026-10-10",
+  "raw_percentile_asof": "2026-10-10",
+  "indicators": [
+    {
+      "indicator": "cn_a_turnover_5d",
+      "value": 99329318774.6,
+      "percentile_5y": 62.06349206349206,
+      "percentile_10y": 80.15873015873017,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "cn_credit_impulse",
+      "value": -0.05960905433413255,
+      "percentile_5y": 16.785714285714285,
+      "percentile_10y": 10.13888888888889,
+      "last_seen": "2026-08-05",
+      "days_stale": 66,
+      "source": "derived"
+    },
+    {
+      "indicator": "cn_dr007",
+      "value": 1.341,
+      "percentile_5y": 1.9047619047619049,
+      "percentile_10y": 1.0084033613445378,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "cn_m2_yoy",
+      "value": 7.5,
+      "percentile_5y": 21.825396825396826,
+      "percentile_10y": 10.912698412698413,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "cn_margin_balance",
+      "value": 25660.28677342,
+      "percentile_5y": 85.79365079365078,
+      "percentile_10y": 92.8968253968254,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "cn_north_5d",
+      "value": -50.35970000000009,
+      "percentile_5y": 27.063492063492063,
+      "percentile_10y": 17.345132743362832,
+      "last_seen": "2024-08-16",
+      "days_stale": 785,
+      "source": "akshare_flow"
+    },
+    {
+      "indicator": "cn_social_financing_12m",
+      "value": null,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "cn_south_5d",
+      "value": 70.92529999999991,
+      "percentile_5y": 37.301587301587304,
+      "percentile_10y": 48.05555555555556,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_flow"
+    },
+    {
+      "indicator": "cn_usdcny_pressure",
+      "value": 6.702099800109863,
+      "percentile_5y": 10.873015873015873,
+      "percentile_10y": 27.26190476190476,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "derived"
+    },
+    {
+      "indicator": "csi300",
+      "value": 4317.2548828125,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "csi300_pb",
+      "value": 1.38,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "csi300_pe_ttm",
+      "value": 12.46,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "akshare_cn"
+    },
+    {
+      "indicator": "dxy",
+      "value": 102.20999908447266,
+      "percentile_5y": 49.72222222222222,
+      "percentile_10y": 74.18650793650794,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "gold_futures",
+      "value": 4216.2998046875,
+      "percentile_5y": 86.03174603174604,
+      "percentile_10y": 93.01587301587301,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "hk_ewh_yield_ttm",
+      "value": 4.6917498869295,
+      "percentile_5y": 82.46031746031746,
+      "percentile_10y": 88.80952380952381,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_hk"
+    },
+    {
+      "indicator": "hkdcny",
+      "value": 0.8513000011444092,
+      "percentile_5y": 9.761904761904763,
+      "percentile_10y": 25.436507936507937,
+      "last_seen": "2026-10-10",
+      "days_stale": 0,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "hsi",
+      "value": 24211.349609375,
+      "percentile_5y": 70.15873015873015,
+      "percentile_10y": 44.166666666666664,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "sp500",
+      "value": 7811.5400390625,
+      "percentile_5y": 99.92063492063492,
+      "percentile_10y": 99.96031746031746,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "us10y_real_yield",
+      "value": 2.91,
+      "percentile_5y": 99.60317460317461,
+      "percentile_10y": 99.8015873015873,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "treasury_real_yield"
+    },
+    {
+      "indicator": "us10y_yield",
+      "value": 5.24399995803833,
+      "percentile_5y": 99.52380952380952,
+      "percentile_10y": 99.76190476190476,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "us2y_yield",
+      "value": 4.8,
+      "percentile_5y": 88.29365079365078,
+      "percentile_10y": 94.14682539682539,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "treasury_yield_curve"
+    },
+    {
+      "indicator": "us3m_yield",
+      "value": 4.25,
+      "percentile_5y": 44.12698412698413,
+      "percentile_10y": 72.06349206349206,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "treasury_yield_curve"
+    },
+    {
+      "indicator": "us_baa10y_spread",
+      "value": 1.48,
+      "percentile_5y": 10.357142857142858,
+      "percentile_10y": 5.178571428571429,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_cape",
+      "value": 41.87,
+      "percentile_5y": 100.0,
+      "percentile_10y": 100.0,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "multpl"
+    },
+    {
+      "indicator": "us_cape_shiller",
+      "value": 40.710608577487044,
+      "percentile_5y": 98.09523809523809,
+      "percentile_10y": 99.04761904761905,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yale_shiller"
+    },
+    {
+      "indicator": "us_effr",
+      "value": 3.88,
+      "percentile_5y": 41.15079365079365,
+      "percentile_10y": 70.57539682539684,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_erp",
+      "value": 0.8409377344336084,
+      "percentile_5y": 0.07936507936507936,
+      "percentile_10y": 0.03968253968253968,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "derived"
+    },
+    {
+      "indicator": "us_hy_oas",
+      "value": 3.15,
+      "percentile_5y": 62.72264631043257,
+      "percentile_10y": 62.72264631043257,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_nfci",
+      "value": -0.494,
+      "percentile_5y": 29.365079365079367,
+      "percentile_10y": 55.1984126984127,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_on_rrp",
+      "value": 0.3,
+      "percentile_5y": 1.984126984126984,
+      "percentile_10y": 10.119047619047619,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_pe_ttm",
+      "value": 26.66,
+      "percentile_5y": 65.44585987261146,
+      "percentile_10y": 70.6677265500795,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "multpl"
+    },
+    {
+      "indicator": "us_reserve_balances",
+      "value": 3029659.0,
+      "percentile_5y": 66.03053435114504,
+      "percentile_10y": 66.03053435114504,
+      "last_seen": "2026-10-07",
+      "days_stale": 3,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_shiller_real_dividend",
+      "value": null,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yale_shiller"
+    },
+    {
+      "indicator": "us_shiller_real_earnings",
+      "value": null,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yale_shiller"
+    },
+    {
+      "indicator": "us_shiller_real_price",
+      "value": 7722.72,
+      "percentile_5y": 98.09523809523809,
+      "percentile_10y": 99.04761904761905,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yale_shiller"
+    },
+    {
+      "indicator": "us_sofr",
+      "value": 3.87,
+      "percentile_5y": 40.0,
+      "percentile_10y": 64.42669172932331,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_t10y2y",
+      "value": 0.4400000000000004,
+      "percentile_5y": 67.81746031746032,
+      "percentile_10y": 52.6984126984127,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "treasury_yield_curve"
+    },
+    {
+      "indicator": "us_t10y3m",
+      "value": 0.9900000000000002,
+      "percentile_5y": 83.88888888888889,
+      "percentile_10y": 67.59920634920636,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "treasury_yield_curve"
+    },
+    {
+      "indicator": "us_tga_balance",
+      "value": 887469.0,
+      "percentile_5y": 87.3015873015873,
+      "percentile_10y": 82.85714285714286,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "treasury_dts"
+    },
+    {
+      "indicator": "us_tga_deposits",
+      "value": 301352.0,
+      "percentile_5y": 93.23241317898486,
+      "percentile_10y": 93.23241317898486,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "treasury_dts"
+    },
+    {
+      "indicator": "us_tga_withdrawals",
+      "value": 299666.0,
+      "percentile_5y": 92.43098842386465,
+      "percentile_10y": 92.43098842386465,
+      "last_seen": "2026-10-08",
+      "days_stale": 2,
+      "source": "treasury_dts"
+    },
+    {
+      "indicator": "us_tr_cape_shiller",
+      "value": 43.32811219938697,
+      "percentile_5y": 98.09523809523809,
+      "percentile_10y": 99.04761904761905,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yale_shiller"
+    },
+    {
+      "indicator": "us_umich_sentiment",
+      "value": null,
+      "percentile_5y": null,
+      "percentile_10y": null,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "fred"
+    },
+    {
+      "indicator": "us_walcl",
+      "value": 6747560.0,
+      "percentile_5y": 30.714285714285715,
+      "percentile_10y": 48.96825396825397,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "fred"
+    },
+    {
+      "indicator": "usdcny",
+      "value": 6.683000087738037,
+      "percentile_5y": 9.523809523809524,
+      "percentile_10y": 25.634920634920633,
+      "last_seen": "2026-10-10",
+      "days_stale": 0,
+      "source": "yfinance_macro"
+    },
+    {
+      "indicator": "vix",
+      "value": 14.84000015258789,
+      "percentile_5y": 20.238095238095237,
+      "percentile_10y": 32.142857142857146,
+      "last_seen": "2026-10-09",
+      "days_stale": 1,
+      "source": "yfinance_macro"
+    }
+  ]
+}
