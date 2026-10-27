@@ -54,6 +54,9 @@ jobs:
       - name: ruff format --check audit scripts
         run: uv run ruff format --check scripts/build_eval_fixture_manifest.py scripts/check_data_source_catalog.py scripts/compare_eval_fixtures.py scripts/probe_hk_valuation.py scripts/summarize_data_audit.py
 
+      - name: Test daily CI issue sync
+        run: node --test .github/scripts/daily-ci-issue.test.js
+
   test:
     name: Tests (py${{ matrix.python-version }})
     runs-on: ubuntu-latest
