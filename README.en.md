@@ -319,7 +319,7 @@ CI defaults to `deepseek-v4-pro` (priced like v4-flash through 2026-05-31; rever
 | [`daily.yml`](./.github/workflows/daily.yml) | cron `0 22 * * *` UTC (06:00 BJT) + manual | ingest → transform → brief → render → push brief back to main + push dist to gh-pages + notify + upload silver artifact | `contents:write` + `issues:write` |
 | [`codeql.yml`](./.github/workflows/codeql.yml) | push / PR / Mon 03:00 UTC | Python static security & quality (`security-and-quality`) | `security-events:write` |
 
-`daily.yml` **opens an issue automatically on failure** (label `ci-failure`) listing common culprits and the rerun entry — upstream API breakages (AkShare / multpl / yfinance / U.S. Treasury / HKMA) almost always surface here first.
+`daily.yml` keeps **one open failure issue** (label `ci-failure`, title prefix `[CI] Daily ingest failed`). If one is already open, later failures append a comment with the run URL and timestamp instead of filing another issue. The next successful daily run comments on those issues and closes them. The body lists common culprits and the rerun entry — upstream API breakages (AkShare / multpl / yfinance / U.S. Treasury / HKMA) almost always surface here first.
 
 ### 6.2 Branch responsibilities
 
@@ -390,7 +390,7 @@ The repository ships with [issue templates](./.github/ISSUE_TEMPLATE/):
 
 - 🐛 **Bug report** — behaviour does not match expectation
 - ✨ **Feature request** — new indicator / market / dashboard view
-- 🔥 **CI failure** — usually opened automatically by `daily.yml`; rarely needs manual filing
+- 🔥 **CI failure** — `daily.yml` files or comments on a `[CI] Daily ingest failed` issue automatically, and closes it after the next success
 
 ### 8.2 PR flow
 

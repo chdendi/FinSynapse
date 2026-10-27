@@ -30,7 +30,7 @@ jobs:
       #   - "Commit generated brief back to main" — push to main
       #   - "Deploy dashboard to GitHub Pages" (peaceiris) — push to gh-pages
       contents: write
-      # Required by "Open issue on failure" — auto-file CI failure issue
+      # Required by daily CI failure issue sync — comment, open, and close
       issues: write
     steps:
       - name: Checkout
@@ -139,28 +139,20 @@ jobs:
           # Don't keep history bloated — squash to one commit per push.
           force_orphan: true
 
-      - name: Open issue on failure
+      # Record the failure before the success closer. A later closer error
+      # must not look like another ingest failure and file a new issue.
+      - name: Record daily CI failure issue
         if: failure()
         uses: actions/github-script@v9
         with:
           script: |
-            const today = new Date().toISOString().slice(0, 10);
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `[CI] Daily ingest failed ${today}`,
-              labels: ['ci-failure', 'auto'],
-              body: [
-                `Daily workflow failed.`,
-                ``,
-                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
-                ``,
-                `Likely culprits:`,
-                `- AkShare upstream rename / EastMoney scrape break`,
-                `- multpl HTML structure change`,
-                `- yfinance rate-limit (curl-cffi backoff)`,
-                `- FRED secret missing/expired`,
-                ``,
-                `Re-run from the Actions UI once root cause is fixed.`,
-              ].join('\n')
-            });
+            const { handleFailure } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/daily-ci-issue.js`);
+            await handleFailure({ github, context, core });
+
+      - name: Close open daily CI failure issues
+        if: success()
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { handleSuccess } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/daily-ci-issue.js`);
+            await handleSuccess({ github, context, core });
