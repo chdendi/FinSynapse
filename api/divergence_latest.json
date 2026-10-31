@@ -1,0 +1,55 @@
+{
+  "schema_version": "2.0.0",
+  "window_days": 90,
+  "asof": "2026-10-22",
+  "signals": [
+    {
+      "date": "2026-09-01",
+      "pair": "hsi_southbound",
+      "strength": 38.917049253982235,
+      "description": "HSI ↑ + southbound ↓: HK rises without mainland support — foreign-led rally?",
+      "a_change_pct": -0.927992553875201,
+      "b_change_pct": 4193.681198353226
+    },
+    {
+      "date": "2026-10-22",
+      "pair": "gold_real_rate",
+      "strength": 0.09387123903221542,
+      "description": "Gold ↑ + real yield ↑: de-dollarization / sovereign hedge bid?",
+      "a_change_pct": -2.1590384977409616,
+      "b_change_pct": -4.347826086956507
+    },
+    {
+      "date": "2026-08-04",
+      "pair": "sp500_vix",
+      "strength": 0.07221671060766698,
+      "description": "SP500 ↑ + VIX ↑: rising on rising fear — beware",
+      "a_change_pct": 1.789619360979544,
+      "b_change_pct": 4.035311205402881
+    },
+    {
+      "date": "2026-08-04",
+      "pair": "sp500_us10y",
+      "strength": 0.02665390537629122,
+      "description": "SP500 ↑ + 10Y ↓: liquidity-driven rally without growth confirmation",
+      "a_change_pct": 1.789619360979544,
+      "b_change_pct": -1.4893617021276673
+    },
+    {
+      "date": "2026-10-01",
+      "pair": "us10y_dxy",
+      "strength": 0.006055871763324695,
+      "description": "10Y ↑ + DXY ↓: yields up, dollar down — credit/inflation regime shift?",
+      "a_change_pct": -0.9451795841209809,
+      "b_change_pct": 0.6407112325597542
+    },
+    {
+      "date": "2026-10-15",
+      "pair": "hsi_dxy",
+      "strength": 0.005546515931096213,
+      "description": "HSI ↑ + DXY ↑: HK rallies despite USD strength — domestic catalyst?",
+      "a_change_pct": -1.0341673993310985,
+      "b_change_pct": -0.5363267044275144
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "2.0.0",
+  "asof": "2026-10-30",
+  "market_asof": {
+    "cn": "2026-10-30",
+    "hk": "2026-10-30",
+    "us": "2026-10-30"
+  },
+  "latest_complete_date": {
+    "cn": null,
+    "hk": "2026-10-30",
+    "us": "2026-10-30"
+  },
+  "raw_temperature_asof": "2026-10-30",
+  "markets": {
+    "cn": {
+      "available": true,
+      "asof": "2026-10-30",
+      "latest_complete_date": null,
+      "overall": 75.74074074074075,
+      "sub_temperatures": {
+        "valuation": null,
+        "sentiment": 75.74074074074075,
+        "liquidity": 50.823412698412696
+      },
+      "change_1w": {
+        "overall": 0.10582010582010071,
+        "attribution": {
+          "valuation": null,
+          "sentiment": 0.10582010582010071,
+          "liquidity": -2.9067460317460387
+        }
+      },
+      "data_quality": "valuation_unavailable",
+      "subtemp_completeness": 2,
+      "conf_ok": 0,
+      "is_complete": false
+    },
+    "hk": {
+      "available": true,
+      "asof": "2026-10-30",
+      "latest_complete_date": "2026-10-30",
+      "overall": 12.217553688141926,
+      "sub_temperatures": {
+        "valuation": 15.555555555555557,
+        "sentiment": 4.2063492063492065,
+        "liquidity": 22.055555555555557
+      },
+      "change_1w": {
+        "overall": 5.746965452847811,
+        "attribution": {
+          "valuation": 6.785714285714292,
+          "sentiment": 3.253968253968254,
+          "liquidity": -0.24603174603174693
+        }
+      },
+      "data_quality": "ok",
+      "subtemp_completeness": 3,
+      "conf_ok": 0,
+      "is_complete": true
+    },
+    "us": {
+      "available": true,
+      "asof": "2026-10-30",
+      "latest_complete_date": "2026-10-30",
+      "overall": 42.01438183993303,
+      "sub_temperatures": {
+        "valuation": 84.69642857142856,
+        "sentiment": 29.52627327436488,
+        "liquidity": 39.573412698412696
+      },
+      "change_1w": {
+        "overall": -4.023819210457461,
+        "attribution": {
+          "valuation": -3.083333333333343,
+          "sentiment": 3.2713848455634107,
+          "liquidity": -0.6071428571428541
+        }
+      },
+      "data_quality": "ok",
+      "subtemp_completeness": 3,
+      "conf_ok": 0,
+      "is_complete": true
+    }
+  }
+}
