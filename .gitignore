@@ -19,6 +19,10 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+# pytest-cov artifacts. coverage.xml is uploaded from CI, never committed.
+.coverage
+.coverage.*
+coverage.xml
 .ipynb_checkpoints/
 dist/
 build/

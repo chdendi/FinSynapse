@@ -356,7 +356,7 @@ uv run python scripts/promote_champion.py \
 | [`daily.yml`](./.github/workflows/daily.yml) | cron `30 9 * * 1-5` UTC（北京工作日 17:30，中港收盘后）+ `0 22 * * *` UTC（北京 06:00，美股收盘后）+ 手动 | ingest → transform → brief → render → 推 brief 回 main + 推 dist 到 gh-pages + notify + 上传 silver artifact | `contents:write` + `issues:write` |
 | [`codeql.yml`](./.github/workflows/codeql.yml) | push / PR / 周一 03:00 UTC | Python 静态安全 / 质量分析（`security-and-quality`） | `security-events:write` |
 
-`daily.yml` 失败会**自动开 issue**（label `ci-failure`），列出常见 culprit 与重跑入口；任何上游 API 改动（AkShare / multpl / yfinance / U.S. Treasury / HKMA）通常都先在这里浮现。
+`daily.yml` 失败会维护**一条** open issue（label `ci-failure`，标题前缀 `[CI] Daily ingest failed`）。已有未关闭的同类 issue 时，在最早的那条上追加失败 run URL 与时间，不再新开；下一次 daily 成功后会给这些 issue 留言并自动关闭。正文列出常见 culprit 与重跑入口；任何上游 API 改动（AkShare / multpl / yfinance / U.S. Treasury / HKMA）通常都先在这里浮现。
 
 ### 6.2 分支职责
 
@@ -427,7 +427,7 @@ uv run finsynapse dashboard serve --port 8501
 
 - 🐛 **Bug report** — 行为不符合预期
 - ✨ **Feature request** — 想加新指标 / 新市场 / 新看板
-- 🔥 **CI failure** — 通常 daily.yml 会自动开，无需手动
+- 🔥 **CI failure** — daily.yml 失败会自动开单，或在已有 `[CI] Daily ingest failed` issue 上追加评论，成功后自动关闭
 
 ### 8.2 PR 流程
 
