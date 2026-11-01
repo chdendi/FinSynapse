@@ -13,7 +13,7 @@ on:
 
 # Default to read-only at workflow level — least privilege. Any future
 # job added to this workflow inherits read-only unless it explicitly opts
-# into more. The single existing job below opts into the writes it needs.
+# into more. Each job below opts into only the writes it needs.
 permissions:
   contents: read
 
@@ -30,8 +30,6 @@ jobs:
       #   - "Commit generated brief back to main" — push to main
       #   - "Deploy dashboard to GitHub Pages" (peaceiris) — push to gh-pages
       contents: write
-      # Required by "Open issue on failure" — auto-file CI failure issue
-      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -47,7 +45,8 @@ jobs:
       - name: Ingest all sources (bronze)
         env:
           # FRED key is the only ingest secret. AkShare, yfinance, multpl,
-          # Treasury rates/FiscalData, and HKMA need no auth. LLM keys NEVER live in CI per plan §0.
+          # Treasury rates/FiscalData, and HKMA need no auth. The DeepSeek key
+          # is passed only to the brief-generation step below.
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: uv run finsynapse ingest all --lookback-days 5500
 
@@ -55,17 +54,14 @@ jobs:
         run: uv run finsynapse transform run --layer all
 
       - name: Generate daily macro brief (LLM narrative or deterministic template)
-        # brief.py provider="auto" order: ollama → deepseek → anthropic → template.
-        # In CI ollama always fails (no localhost); if DEEPSEEK_API_KEY is set
-        # in repo secrets, deepseek wins. With no key configured at all, the
-        # deterministic template fires — output is still a valid .md.
-        # Model choice: deepseek-v4-pro (current top-tier) is 75% off through
-        # 2026-05-31 — same price tier as v4-flash for now, swap back to
-        # deepseek-v4-flash after the discount window if cost matters.
+        # Try DeepSeek directly; a missing key or API error falls back to the
+        # deterministic template. Override the default Flash model with the
+        # DAILY_BRIEF_MODEL repository variable (no workflow edit required).
         # `|| true` so a transient brief failure doesn't block publish.
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: uv run finsynapse report brief --provider deepseek --model deepseek-v4-pro || true
+          BRIEF_MODEL: ${{ vars.DAILY_BRIEF_MODEL || 'deepseek-flash' }}
+        run: uv run finsynapse report brief --provider deepseek --model "$BRIEF_MODEL" || true
 
       - name: Render bilingual static dashboard
         # CLARITY_PROJECT_ID drives the Microsoft Clarity tracking snippet
@@ -139,28 +135,33 @@ jobs:
           # Don't keep history bloated — squash to one commit per push.
           force_orphan: true
 
-      - name: Open issue on failure
-        if: failure()
+  update-alert:
+    name: Update daily CI alert
+    needs: build-and-publish
+    # A separate job can report a build timeout. Cancellation is not recovery,
+    # and manual runs on other branches must not change the main alert.
+    if: >-
+      ${{ always() && !cancelled() && github.ref == 'refs/heads/main' &&
+          (needs.build-and-publish.result == 'success' || needs.build-and-publish.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Create, update, or close the daily alert
         uses: actions/github-script@v9
+        env:
+          BUILD_RESULT: ${{ needs.build-and-publish.result }}
         with:
           script: |
-            const today = new Date().toISOString().slice(0, 10);
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `[CI] Daily ingest failed ${today}`,
-              labels: ['ci-failure', 'auto'],
-              body: [
-                `Daily workflow failed.`,
-                ``,
-                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
-                ``,
-                `Likely culprits:`,
-                `- AkShare upstream rename / EastMoney scrape break`,
-                `- multpl HTML structure change`,
-                `- yfinance rate-limit (curl-cffi backoff)`,
-                `- FRED secret missing/expired`,
-                ``,
-                `Re-run from the Actions UI once root cause is fixed.`,
-              ].join('\n')
+            const updateAlert = require('./.github/scripts/daily-alert.cjs');
+            await updateAlert({
+              github, context, core,
+              result: process.env.BUILD_RESULT,
+              runAttempt: Number(process.env.GITHUB_RUN_ATTEMPT),
             });
