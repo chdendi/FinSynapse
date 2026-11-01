@@ -309,7 +309,7 @@ gold/    叙事：人类/LLM 读得懂的结论
 
 `finsynapse report brief` 优先级：`auto` 模式按 `ollama → deepseek → anthropic` 顺序尝试，**全失败时落到 deterministic Jinja 模板**，永远产出有效 .md。
 
-CI 默认用 `deepseek-v4-pro`（2026-05-31 前折扣同 v4-flash 价位；过期后改回 v4-flash）。本地可以用 `--provider ollama` 跑离线模型零成本。
+CI 默认用 `deepseek-flash`；可在 GitHub 仓库 Settings → Secrets and variables → Actions → Variables 中设置 `DAILY_BRIEF_MODEL` 覆盖模型，无需修改工作流。缺少 API key 或模型请求失败时回退到确定性模板。本地可以用 `--provider ollama` 跑离线模型零成本。
 
 ### 5.9 权重改动流程 (champion-challenger gate)
 
@@ -356,7 +356,7 @@ uv run python scripts/promote_champion.py \
 | [`daily.yml`](./.github/workflows/daily.yml) | cron `30 9 * * 1-5` UTC（北京工作日 17:30，中港收盘后）+ `0 22 * * *` UTC（北京 06:00，美股收盘后）+ 手动 | ingest → transform → brief → render → 推 brief 回 main + 推 dist 到 gh-pages + notify + 上传 silver artifact | `contents:write` + `issues:write` |
 | [`codeql.yml`](./.github/workflows/codeql.yml) | push / PR / 周一 03:00 UTC | Python 静态安全 / 质量分析（`security-and-quality`） | `security-events:write` |
 
-`daily.yml` 失败会**自动开 issue**（label `ci-failure`），列出常见 culprit 与重跑入口；任何上游 API 改动（AkShare / multpl / yfinance / U.S. Treasury / HKMA）通常都先在这里浮现。
+`daily.yml` 在 main 分支首次失败时创建一个自动告警 Issue（labels `ci-failure`、`auto`），后续失败追加运行链接，同一次运行的同一次尝试不会重复评论。下一次成功后自动关闭告警；取消运行不算恢复，旧运行重跑不会覆盖更新运行的告警状态。独立通知任务可在采集或发布任务超时后继续处理告警；历史重复告警在失败时合并、成功时关闭。非 main 分支的手动运行不修改告警。
 
 ### 6.2 分支职责
 

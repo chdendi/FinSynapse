@@ -305,7 +305,7 @@ The `data_quality` field on `temperature_daily.parquet` records actual availabil
 
 `finsynapse report brief` priority: `auto` mode tries `ollama → deepseek → anthropic` in order, **falling back to a deterministic Jinja template if all fail** — the output is always a valid `.md`.
 
-CI defaults to `deepseek-v4-pro` (priced like v4-flash through 2026-05-31; revert to v4-flash afterwards). Locally, `--provider ollama` runs offline at zero cost.
+CI defaults to `deepseek-flash`. Set the `DAILY_BRIEF_MODEL` repository variable under GitHub Settings → Secrets and variables → Actions → Variables to override the model without editing the workflow. A missing API key or failed model request falls back to the deterministic template. Locally, `--provider ollama` runs offline at zero cost.
 
 ---
 
@@ -316,10 +316,10 @@ CI defaults to `deepseek-v4-pro` (priced like v4-flash through 2026-05-31; rever
 | Workflow | Trigger | Job | Write scope |
 |---|---|---|---|
 | [`ci.yml`](./.github/workflows/ci.yml) | push main / PR | ruff lint + format check + pytest (py 3.11/3.12 matrix) | read-only |
-| [`daily.yml`](./.github/workflows/daily.yml) | cron `0 22 * * *` UTC (06:00 BJT) + manual | ingest → transform → brief → render → push brief back to main + push dist to gh-pages + notify + upload silver artifact | `contents:write` + `issues:write` |
+| [`daily.yml`](./.github/workflows/daily.yml) | cron `30 9 * * 1-5` UTC (17:30 BJT weekdays, after CN/HK close) + `0 22 * * *` UTC (06:00 BJT, after US close) + manual | ingest → transform → brief → render → push brief back to main + push dist to gh-pages + notify + upload silver artifact | `contents:write` + `issues:write` |
 | [`codeql.yml`](./.github/workflows/codeql.yml) | push / PR / Mon 03:00 UTC | Python static security & quality (`security-and-quality`) | `security-events:write` |
 
-`daily.yml` **opens an issue automatically on failure** (label `ci-failure`) listing common culprits and the rerun entry — upstream API breakages (AkShare / multpl / yfinance / U.S. Treasury / HKMA) almost always surface here first.
+On main, `daily.yml` creates one automatic alert issue (labels `ci-failure`, `auto`) on the first failure and appends run links for subsequent failures, without repeating a comment for the same run attempt. The next successful run closes the alert; cancellation does not count as recovery, and rerunning an old workflow cannot override a newer run's alert state. A separate notification job can still handle a build or publish timeout. Legacy duplicate alerts are consolidated on failure or closed on success. Manual runs on other branches do not change alerts.
 
 ### 6.2 Branch responsibilities
 

@@ -26,6 +26,14 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Install Node for workflow tests
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Test daily CI alert lifecycle
+        run: node --test .github/scripts/daily-alert.test.cjs
+
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
