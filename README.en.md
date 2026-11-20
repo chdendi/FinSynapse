@@ -17,6 +17,14 @@
 
 Refreshed daily at 06:00 Beijing (22:00 UTC the day before): composite thermometers for CN / HK / US, valuation / sentiment / liquidity sub-temperatures, weekly attribution, five hard-coded divergence pairs, and a daily macro brief.
 
+<a name="external-resources"></a>
+
+## Sponsor
+
+[Equibles](https://equibles.com): stock market data API
+
+Thanks to Equibles for supporting FinSynapse and making its API available to developers.
+
 ---
 
 ## 1. What it is / isn't
@@ -451,9 +459,3 @@ Data and ecosystem credits:
 - **multpl.com** — Shiller CAPE history
 - **DeepSeek / Anthropic / Ollama** — LLM narrative generation
 - **uv / ruff / pytest** — astral-sh toolchain
-
-### External resources
-
-- [Equibles](https://equibles.com): stock market data API
-
-Thanks to Equibles for supporting FinSynapse and making its API available to developers.
