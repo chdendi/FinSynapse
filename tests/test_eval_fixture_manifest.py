@@ -26,14 +26,14 @@ def test_eval_fixture_manifest_audits_indicator_pivot_coverage():
     manifest = json.loads(MANIFEST_PATH.read_text())
     coverage = manifest["indicator_pivot_coverage"]
 
-    assert coverage["total_checks"] == 218
-    assert coverage["available_checks"] == 184
-    assert coverage["missing_checks"] == 34
+    assert coverage["total_checks"] == 310
+    assert coverage["available_checks"] == 254
+    assert coverage["missing_checks"] == 56
     assert coverage["by_market"] == {
-        "us": {"available": 76, "total": 90},
-        "cn": {"available": 72, "total": 80},
-        "hk": {"available": 36, "total": 48},
+        "us": {"available": 110, "total": 130},
+        "cn": {"available": 98, "total": 110},
+        "hk": {"available": 46, "total": 70},
     }
     missing = coverage["missing_required_percentiles"]
-    assert len(missing) == 34
+    assert len(missing) == 56
     assert any(row["indicator"] == "us_hy_oas" and row["reason"] == "no_percentile_row" for row in missing)

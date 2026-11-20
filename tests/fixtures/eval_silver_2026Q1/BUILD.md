@@ -10,14 +10,19 @@
 
 ## Coverage
 
-Covers all 25 historical pivots in `scripts/backtest_pivots.yaml`:
-- US: 2011-10-03 through 2024-12-31 (9 pivots)
-- CN: 2015-06-12 through 2024-09-23 (8 pivots)
-- HK: 2015-04-27 through 2024-10-10 (8 pivots)
+The current audit evaluates 34 historical pivots in `scripts/backtest_pivots.yaml`:
+- US: 13 pivots
+- CN: 11 pivots
+- HK: 10 pivots
+
+The audit uses the last fixture observation on or before each pivot. For
+the three April 2025 pivots, that observation predates the event because
+the fixture ends in December 2024.
 
 Weighted indicator required-window coverage at those pivots:
-- Overall: 184/218 checks have the required percentile window populated
-- US: 76/90; CN: 72/80; HK: 36/48
+- Overall: 254/310 checks have the required percentile window populated
+- US: 110/130, CN: 98/110, HK: 46/70
+- The historical fixture has zero of the 10 required HSI PE percentile observations.
 - Missing checks are listed in `MANIFEST.json → indicator_pivot_coverage.missing_required_percentiles`
 
 Collected-only official and academic-public overlays now included in `macro_daily.parquet` and
@@ -27,7 +32,7 @@ Collected-only official and academic-public overlays now included in `macro_dail
 - U.S. Treasury DTS: `us_tga_balance`, `us_tga_deposits`, `us_tga_withdrawals`
 - Yale/Shiller: `us_shiller_real_price`, `us_shiller_real_dividend`, `us_shiller_real_earnings`, `us_cape_shiller`, `us_tr_cape_shiller`
 
-Candidate comparison against the previous fixture showed +32,845 macro rows,
+On the original 25-pivot audit, candidate comparison against the previous fixture showed +32,845 macro rows,
 +12 indicators, unchanged weighted pivot coverage (184/218), unchanged gate
 metrics, and no pivot changes.
 

@@ -334,6 +334,8 @@ uv run python scripts/promote_champion.py \
 
 **Gate 规则**（见 `src/finsynapse/eval/champion.py`）：
 
+Gate 按当前 champion 记录的事件计算双方的命中率。新增事件会进入回测报告，缺少 champion 已记录的事件会导致 gate 失败。
+
 | 指标 | 方向 | 容忍度 | 级别 |
 |---|---|---|---|
 | `pivot_directional_rate` | higher_better | 0 | block |

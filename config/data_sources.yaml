@@ -128,10 +128,10 @@ sources:
     tier: official_public
     access: keyless_free
     provider: src/finsynapse/providers/hsi_monthly_valuation.py
-    status: collected_only
-    notes: Official Hang Seng Indexes Monthly Roundup PDF archive source for monthly HSI PE ratio and dividend yield. The provider is manual-only in ingest all because PDF archive crawling is slower and more fragile than API sources. Live 2019-07-03..2026-05-07 backfill found 76/83 publication months; missing months need archive-discovery review before fixture promotion.
+    status: active
+    notes: Official Hang Seng Indexes Monthly Roundup PDFs for the HSI PE ratio and dividend yield. The daily ingest installs Poppler for PDF parsing. A historical backfill for 2019-07-03..2026-05-07 found 76 of 83 publication months.
     indicators:
-      hk_hsi_pe: { usage: collected_only, market: hk, description: Hang Seng Index PE ratio from official Monthly Roundup }
+      hk_hsi_pe: { usage: weighted, market: hk, description: Hang Seng Index PE ratio from official Monthly Roundup }
       hk_hsi_dividend_yield: { usage: collected_only, market: hk, description: Hang Seng Index dividend yield from official Monthly Roundup }
 
   akshare_cn:
@@ -183,8 +183,8 @@ sources:
 known_gaps:
   hk_native_valuation:
     market: hk
-    status: source_ready
-    notes: hsi_monthly_valuation now provides manual collected-only official Monthly Roundup PDF ingestion for HSI PE ratio and dividend yield. A 2019-07-03..2026-05-07 live backfill parsed 76 monthly observations per indicator (PE 8.26..17.64, dividend yield 2.26..4.53) but missed 7 publication months, so it is not production-weighted until archive-discovery review, full fixture backfill, parser hardening, and gate review pass; EWH dividend yield remains the current weighted proxy.
+    status: requires_fixture_rebuild
+    notes: HSI PE has a 40% weight in the HK valuation sub-temperature alongside EWH dividend yield at 60%. The historical eval fixture still lacks HSI PE percentile rows. The 2019-07-03..2026-05-07 PDF backfill missed seven publication months.
   hsi_options_pcr:
     market: hk
     status: unresolved
