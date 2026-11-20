@@ -451,3 +451,9 @@ Data and ecosystem credits:
 - **multpl.com** — Shiller CAPE history
 - **DeepSeek / Anthropic / Ollama** — LLM narrative generation
 - **uv / ruff / pytest** — astral-sh toolchain
+
+### External resources
+
+- [Equibles](https://equibles.com): stock market data API
+
+Thanks to Equibles for supporting FinSynapse and making its API available to developers.
