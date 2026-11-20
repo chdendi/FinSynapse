@@ -35,10 +35,10 @@ def test_data_audit_summary_includes_pr_relevant_evidence():
     assert "hk_aggregate_balance" in summary
     assert "hk_hsi_pe" in summary
     assert "hk_hsi_dividend_yield" in summary
-    assert "Pivot coverage: 25/25" in summary
-    assert "Indicator pivot checks: 184/218" in summary
-    assert "Missing required indicator-window checks: 34" in summary
-    assert "Top fixture data gaps: hk_vhsi=8, us_hy_oas=7" in summary
+    assert "Pivot coverage: 34/34" in summary
+    assert "Indicator pivot checks: 254/310" in summary
+    assert "Missing required indicator-window checks: 56" in summary
+    assert "Top fixture data gaps: us_hy_oas=10, hk_hsi_pe=10, hk_vhsi=10" in summary
     assert "Macro rows: 110,523 across 49 indicators" in summary
     assert "Percentile rows: 151,468" in summary
     assert "hk_native_valuation" in summary

@@ -175,131 +175,135 @@
   },
   "pivot_coverage": {
     "pivots_path": "scripts/backtest_pivots.yaml",
-    "total": 25,
-    "covered": 25,
+    "total": 34,
+    "covered": 34,
     "missing": 0,
     "by_market": {
-      "us": 9,
-      "cn": 8,
-      "hk": 8
+      "us": 13,
+      "cn": 11,
+      "hk": 10
     }
   },
   "indicator_pivot_coverage": {
     "weights_path": "config/weights.yaml",
     "pivots_path": "scripts/backtest_pivots.yaml",
-    "total_checks": 218,
-    "available_checks": 184,
-    "missing_checks": 34,
+    "total_checks": 310,
+    "available_checks": 254,
+    "missing_checks": 56,
     "by_market": {
       "us": {
-        "available": 76,
-        "total": 90
+        "available": 110,
+        "total": 130
       },
       "cn": {
-        "available": 72,
-        "total": 80
+        "available": 98,
+        "total": 110
       },
       "hk": {
-        "available": 36,
-        "total": 48
+        "available": 46,
+        "total": 70
       }
     },
     "by_indicator": {
       "dxy": {
-        "available": 16,
-        "total": 17
+        "available": 22,
+        "total": 23
       },
       "us10y_real_yield": {
-        "available": 16,
-        "total": 17
+        "available": 21,
+        "total": 23
       },
       "us_cape": {
-        "available": 9,
-        "total": 9
+        "available": 13,
+        "total": 13
       },
       "us_erp": {
-        "available": 8,
-        "total": 9
+        "available": 11,
+        "total": 13
       },
       "us_hy_oas": {
-        "available": 2,
-        "total": 9
+        "available": 3,
+        "total": 13
       },
       "us_nfci": {
-        "available": 8,
-        "total": 9
+        "available": 12,
+        "total": 13
       },
       "us_pe_ttm": {
-        "available": 9,
-        "total": 9
+        "available": 13,
+        "total": 13
       },
       "us_umich_sentiment": {
-        "available": 8,
-        "total": 9
+        "available": 11,
+        "total": 13
       },
       "us_walcl": {
-        "available": 8,
-        "total": 9
+        "available": 12,
+        "total": 13
       },
       "vix": {
-        "available": 8,
-        "total": 9
+        "available": 12,
+        "total": 13
       },
       "cn_a_turnover_5d": {
-        "available": 8,
-        "total": 8
+        "available": 11,
+        "total": 11
       },
       "cn_credit_impulse": {
-        "available": 6,
-        "total": 8
+        "available": 8,
+        "total": 11
       },
       "cn_dr007": {
-        "available": 6,
-        "total": 8
+        "available": 8,
+        "total": 11
       },
       "cn_m2_yoy": {
-        "available": 8,
-        "total": 8
+        "available": 11,
+        "total": 11
       },
       "cn_margin_balance": {
-        "available": 8,
-        "total": 8
+        "available": 11,
+        "total": 11
       },
       "cn_north_5d": {
-        "available": 6,
-        "total": 8
+        "available": 8,
+        "total": 11
       },
       "cn_social_financing_12m": {
-        "available": 6,
-        "total": 8
+        "available": 8,
+        "total": 11
       },
       "cn_usdcny_pressure": {
-        "available": 8,
-        "total": 8
+        "available": 11,
+        "total": 11
       },
       "csi300_pb": {
-        "available": 8,
-        "total": 8
+        "available": 11,
+        "total": 11
       },
       "csi300_pe_ttm": {
-        "available": 8,
-        "total": 8
+        "available": 11,
+        "total": 11
       },
       "cn_south_5d": {
-        "available": 6,
-        "total": 8
+        "available": 8,
+        "total": 10
       },
       "hk_ewh_yield_ttm": {
-        "available": 8,
-        "total": 8
+        "available": 10,
+        "total": 10
       },
       "hk_hibor_1m": {
-        "available": 6,
-        "total": 8
+        "available": 8,
+        "total": 10
+      },
+      "hk_hsi_pe": {
+        "available": 0,
+        "total": 10
       },
       "hk_vhsi": {
         "available": 0,
-        "total": 8
+        "total": 10
       }
     },
     "missing_required_percentiles": [
@@ -400,8 +404,68 @@
         "reason": "pct_5y_is_null"
       },
       {
+        "pivot_label": "2013 Taper Tantrum (Bernanke QE exit signal)",
+        "pivot_date": "2013-06-24",
+        "market": "us",
+        "indicator": "us10y_real_yield",
+        "required_window": "pct_10y",
+        "raw_latest_date": "2013-06-24",
+        "raw_lag_days": 0,
+        "pct_latest_date": "2013-06-24",
+        "pct_lag_days": 0,
+        "reason": "pct_10y_is_null"
+      },
+      {
+        "pivot_label": "2013 Taper Tantrum (Bernanke QE exit signal)",
+        "pivot_date": "2013-06-24",
+        "market": "us",
+        "indicator": "us_erp",
+        "required_window": "pct_10y",
+        "raw_latest_date": "2013-06-24",
+        "raw_lag_days": 0,
+        "pct_latest_date": "2013-06-24",
+        "pct_lag_days": 0,
+        "reason": "pct_10y_is_null"
+      },
+      {
+        "pivot_label": "2013 Taper Tantrum (Bernanke QE exit signal)",
+        "pivot_date": "2013-06-24",
+        "market": "us",
+        "indicator": "us_hy_oas",
+        "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2013 Taper Tantrum (Bernanke QE exit signal)",
+        "pivot_date": "2013-06-24",
+        "market": "us",
+        "indicator": "us_umich_sentiment",
+        "required_window": "pct_10y",
+        "raw_latest_date": "2013-06-01",
+        "raw_lag_days": 23,
+        "pct_latest_date": "2013-06-24",
+        "pct_lag_days": 0,
+        "reason": "pct_10y_is_null"
+      },
+      {
         "pivot_label": "2015–16 China-growth-scare correction (US was not cold — PE still elevated)",
         "pivot_date": "2016-02-11",
+        "market": "us",
+        "indicator": "us_hy_oas",
+        "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2018 Volmageddon (XIV liquidation / VIX ETN blowup)",
+        "pivot_date": "2018-02-05",
         "market": "us",
         "indicator": "us_hy_oas",
         "required_window": "pct_5y",
@@ -450,6 +514,18 @@
       {
         "pivot_label": "2022 Fed hiking-cycle trough (pre-pivot)",
         "pivot_date": "2022-10-12",
+        "market": "us",
+        "indicator": "us_hy_oas",
+        "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2022 Russia-Ukraine invasion / commodity shock",
+        "pivot_date": "2022-03-14",
         "market": "us",
         "indicator": "us_hy_oas",
         "required_window": "pct_5y",
@@ -510,6 +586,54 @@
       {
         "pivot_label": "A-shares 2015 leveraged-bull peak",
         "pivot_date": "2015-06-12",
+        "market": "cn",
+        "indicator": "cn_social_financing_12m",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2015 A-share Black Monday (post-811 devaluation crash)",
+        "pivot_date": "2015-08-26",
+        "market": "cn",
+        "indicator": "cn_credit_impulse",
+        "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2015 A-share Black Monday (post-811 devaluation crash)",
+        "pivot_date": "2015-08-26",
+        "market": "cn",
+        "indicator": "cn_dr007",
+        "required_window": "pct_5y",
+        "raw_latest_date": "2015-05-08",
+        "raw_lag_days": 110,
+        "pct_latest_date": "2015-05-08",
+        "pct_lag_days": 110,
+        "reason": "pct_5y_is_null"
+      },
+      {
+        "pivot_label": "2015 A-share Black Monday (post-811 devaluation crash)",
+        "pivot_date": "2015-08-26",
+        "market": "cn",
+        "indicator": "cn_north_5d",
+        "required_window": "pct_5y",
+        "raw_latest_date": "2015-08-26",
+        "raw_lag_days": 0,
+        "pct_latest_date": "2015-08-26",
+        "pct_lag_days": 0,
+        "reason": "pct_5y_is_null"
+      },
+      {
+        "pivot_label": "2015 A-share Black Monday (post-811 devaluation crash)",
+        "pivot_date": "2015-08-26",
         "market": "cn",
         "indicator": "cn_social_financing_12m",
         "required_window": "pct_10y",
@@ -595,6 +719,18 @@
         "pivot_label": "2015 connect-driven bull peak",
         "pivot_date": "2015-04-27",
         "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2015 connect-driven bull peak",
+        "pivot_date": "2015-04-27",
+        "market": "hk",
         "indicator": "hk_vhsi",
         "required_window": "pct_5y",
         "raw_latest_date": null,
@@ -631,8 +767,32 @@
         "pivot_label": "2016 HK crash bottom (A-share meltdown spillover)",
         "pivot_date": "2016-01-20",
         "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2016 HK crash bottom (A-share meltdown spillover)",
+        "pivot_date": "2016-01-20",
+        "market": "hk",
         "indicator": "hk_vhsi",
         "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2018 trade-war / HKD peg defence low",
+        "pivot_date": "2018-10-30",
+        "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
         "raw_latest_date": null,
         "raw_lag_days": null,
         "pct_latest_date": null,
@@ -655,8 +815,32 @@
         "pivot_label": "2020 COVID HK bottom",
         "pivot_date": "2020-03-23",
         "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2020 COVID HK bottom",
+        "pivot_date": "2020-03-23",
+        "market": "hk",
         "indicator": "hk_vhsi",
         "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2021 southbound surge / tech mania peak",
+        "pivot_date": "2021-02-17",
+        "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
         "raw_latest_date": null,
         "raw_lag_days": null,
         "pct_latest_date": null,
@@ -679,8 +863,56 @@
         "pivot_label": "2022 HSI 25-year low (property + liquidity crisis)",
         "pivot_date": "2022-10-31",
         "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2022 HSI 25-year low (property + liquidity crisis)",
+        "pivot_date": "2022-10-31",
+        "market": "hk",
         "indicator": "hk_vhsi",
         "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2022 Russia-Ukraine / China regulatory crackdown",
+        "pivot_date": "2022-03-15",
+        "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2022 Russia-Ukraine / China regulatory crackdown",
+        "pivot_date": "2022-03-15",
+        "market": "hk",
+        "indicator": "hk_vhsi",
+        "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2024 pre-recovery HK low",
+        "pivot_date": "2024-01-22",
+        "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
         "raw_latest_date": null,
         "raw_lag_days": null,
         "pct_latest_date": null,
@@ -702,6 +934,42 @@
       {
         "pivot_label": "2024 9.24 policy-pivot surge",
         "pivot_date": "2024-10-10",
+        "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2024 9.24 policy-pivot surge",
+        "pivot_date": "2024-10-10",
+        "market": "hk",
+        "indicator": "hk_vhsi",
+        "required_window": "pct_5y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2025 Liberation Day tariff shock (HK)",
+        "pivot_date": "2025-04-07",
+        "market": "hk",
+        "indicator": "hk_hsi_pe",
+        "required_window": "pct_10y",
+        "raw_latest_date": null,
+        "raw_lag_days": null,
+        "pct_latest_date": null,
+        "pct_lag_days": null,
+        "reason": "no_percentile_row"
+      },
+      {
+        "pivot_label": "2025 Liberation Day tariff shock (HK)",
+        "pivot_date": "2025-04-07",
         "market": "hk",
         "indicator": "hk_vhsi",
         "required_window": "pct_5y",

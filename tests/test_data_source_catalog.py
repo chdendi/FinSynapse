@@ -67,11 +67,11 @@ def test_eval_fixture_macro_indicators_are_cataloged():
     assert fixture_indicators(FIXTURE_MACRO_PATH).issubset(catalog_indicators(catalog))
 
 
-def test_pdf_archive_sources_are_manual_ingest_only():
+def test_hsi_monthly_valuation_is_enabled_for_bulk_ingest():
     from finsynapse.cli import MANUAL_INGEST_SOURCES, SOURCES
 
     assert "hsi_monthly_valuation" in SOURCES
-    assert "hsi_monthly_valuation" in MANUAL_INGEST_SOURCES
+    assert "hsi_monthly_valuation" not in MANUAL_INGEST_SOURCES
 
 
 def test_catalog_tracks_known_data_gaps():
@@ -87,6 +87,6 @@ def test_catalog_tracks_known_data_gaps():
         "eval_fixture_warmup_history",
     }.issubset(gaps)
     assert all(gap["status"] in KNOWN_GAP_STATUSES for gap in gaps.values())
-    assert gaps["hk_native_valuation"]["status"] == "source_ready"
+    assert gaps["hk_native_valuation"]["status"] == "requires_fixture_rebuild"
     assert gaps["hk_vhsi_fixture_history"]["status"] == "source_ready"
     assert gaps["eval_fixture_warmup_history"]["status"] == "requires_fixture_rebuild"

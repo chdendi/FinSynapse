@@ -13,9 +13,9 @@ def test_compare_eval_fixtures_baseline_to_itself_has_no_delta():
 
     assert "## Eval Fixture Candidate Comparison" in report
     assert "Macro rows: 110,523 -> 110,523 (+0)" in report
-    assert "Indicator pivot checks: 184/218 -> 184/218 (+0)" in report
-    assert "Missing required checks: 34 -> 34 (+0)" in report
-    assert "`pivot_directional_rate`: 0.9200 -> 0.9200 (+0.0000, block, PASS)" in report
+    assert "Indicator pivot checks: 254/310 -> 254/310 (+0)" in report
+    assert "Missing required checks: 56 -> 56 (+0)" in report
+    assert "`pivot_directional_rate`: 0.8529 -> 0.8529 (+0.0000, block, PASS)" in report
     assert "### Required Percentile Coverage Delta" in report
     assert "Resolved missing checks: none" in report
     assert "Newly missing checks: none" in report
@@ -39,8 +39,8 @@ def test_compare_eval_fixtures_lists_resolved_missing_percentile_checks(tmp_path
     comparison = build_comparison(FIXTURE_DIR, candidate)
     report = render_markdown(comparison)
 
-    assert "Indicator pivot checks: 184/218 -> 185/218 (+1)" in report
-    assert "Missing required checks: 34 -> 33 (-1)" in report
+    assert "Indicator pivot checks: 254/310 -> 255/310 (+1)" in report
+    assert "Missing required checks: 56 -> 55 (-1)" in report
     assert "Resolved missing checks: `dxy`=1" in report
     assert "Newly missing checks: none" in report
     assert "us 2011-10-03 `2011 US debt downgrade / Eurozone crisis low`: `dxy` pct_5y" in report
